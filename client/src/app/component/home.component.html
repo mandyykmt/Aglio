@@ -1,0 +1,41 @@
+<div class="custom-header-container">
+    <img src="/assets/images/aglio.png" width="350px" height="350px">
+    <p class="custom-header">
+        Welcome to AGLIO!
+    </p>
+</div>
+
+<div class="custom-header-sub">
+    <p>
+        (friend of Olio)
+    </p>
+</div>
+
+<div *ngIf="isLoggedIn(); else notLoggedIn" class="custom-body-container">
+    <div class="custom-body">
+        <p>
+            Have anything you don't need? List them
+            <a [routerLink]="['/add']">here</a>
+            .
+        </p>
+    </div>
+    <div class="custom-body">
+        <p>
+            Need anything? Try looking for them
+            <a [routerLink]="['/find']">here</a>
+            .
+        </p>
+    </div>    
+</div>
+
+<ng-template #notLoggedIn>
+    <div class="custom-body-container">
+        <div class="custom-body">
+            <p>
+                Looking for something?
+                <a [routerLink]="['/register']">Register here</a>
+                .
+            </p>
+        </div>
+    </div>
+</ng-template>

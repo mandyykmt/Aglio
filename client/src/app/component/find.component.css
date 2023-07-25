@@ -1,0 +1,43 @@
+.custom-header {
+    display: flex; 
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.custom-container {
+    margin: 20px;
+    display: grid;
+    justify-items: center;
+}
+
+.mat-card-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.mat-card {
+    margin: 10px;
+    width: 250px;
+    height: 380px; 
+}
+
+.mat-card-image {
+    width: 100%;
+    height: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.custom-router {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2%;
+}
+
+.custom-template {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    font-size: 26px;
+}

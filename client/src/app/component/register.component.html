@@ -1,0 +1,104 @@
+<div class="custom-header">
+    <h1>REGISTER FOR AN ACCOUNT</h1>
+</div>
+
+<div class="custom-form-container" [formGroup]="form">
+    <mat-horizontal-stepper [linear]="true">
+        <mat-step label="Create user" [formGroupName]="0" [stepControl]="getFormGroup('0')">
+            <div class="custom-step">
+                <mat-form-field class="custom-form-field">
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="Choose a username" formControlName="username" >
+                    <mat-error *ngIf="form.get('0.username')?.invalid">
+                        Username should be between 4 to 15 characters.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="custom-form-field">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Choose a password" formControlName="password">
+                    <mat-error *ngIf="form.get('0.password')?.invalid">
+                        Password should contain 6 to 15 characters.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="custom-form-field">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput placeholder="Confirm your password" formControlName="password2">
+                    <mat-error 
+                        *ngIf="form.get('0.password2')?.invalid">
+                        Passwords do not match.
+                    </mat-error>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step label="Your name" [formGroupName]="1" [stepControl]="getFormGroup('1')">
+            <div class="custom-step">
+                <mat-form-field class="custom-form-field">
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="First Name" formControlName="firstName">
+                    <mat-error *ngIf="form.get('1.firstName')?.invalid">
+                        Please enter a valid first name.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="custom-form-field">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Last name" formControlName="lastName">
+                    <mat-error *ngIf="form.get('1.lastName')?.invalid">
+                        Please enter a valid last name.
+                    </mat-error>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperPrevious type="button">Previous</button>
+                    <button mat-button matStepperNext type="button">Next</button>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step label="Contact info" [formGroupName]="2" [stepControl]="getFormGroup('2')">
+            <div class="custom-step">
+                <mat-form-field class="custom-form-field">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email" formControlName="email">
+                    <mat-error *ngIf="form.get('2.email')?.invalid">
+                        Please enter a valid email.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="custom-form-field">
+                    <mat-label>Phone</mat-label>
+                    <input matInput placeholder="Phone" formControlName="phone">
+                    <mat-error *ngIf="form.get('2.phone')?.invalid">
+                        Please enter a valid phone number. Phone number should contain 8 digits.
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="custom-form-field">
+                    <mat-label>Country</mat-label>
+                    <input matInput placeholder="Country" formControlName="country">
+                    <mat-error *ngIf="form.get('2.country')?.invalid">
+                        <!-- prepare dropdown -->
+                        Select your country. 
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="custom-form-field">
+                    <mat-label>Postal Code</mat-label>
+                    <input matInput placeholder="Postal Code" formControlName="postalCode">
+                    <mat-error *ngIf="form.get('2.postalCode')?.invalid">
+                        Please enter a valid postal code. Postal code should have 6 digits.
+                    </mat-error>
+                </mat-form-field>
+                <div class="mat-form-button">
+                    <button mat-button matStepperPrevious type="button">Previous</button>
+                    <button mat-button matStepperNext type="button" 
+                            [disabled]="invalidForm()" 
+                            (click)="submitRegistration()">
+                            Submit</button>
+                    <button mat-button type="button" (click)="clearForm()">Clear inputs</button>
+                </div>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>
+
+<div class="custom-router">
+    <a [routerLink]="['/login']">Already have an account? Login here</a>
+</div>

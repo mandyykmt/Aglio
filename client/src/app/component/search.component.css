@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .custom-para {
+    text-align: center;
+    font-size: auto;
+    width: 400px;
+  }
+  
+  .form-field {
+    width: 400px;
+    border: 2px solid;
+    border-color: green;
+  }
+
+  .input {
+    width: 100%;
+  }
+  
+  .submit-button {
+    margin-top: 20px;
+    display: flex;
+    justify-items: center;
+  }

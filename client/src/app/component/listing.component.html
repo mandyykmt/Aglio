@@ -1,0 +1,29 @@
+<div class="custom-display">
+    <button type="button" [routerLink]="['/find']">See all listings</button>
+</div>
+
+<div class="custom-container">
+    <div *ngIf="listing$ | async as l" class="mat-card">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{ l.listingName }}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image class="mat-card-image" [src]="l.url">
+            <mat-card-content>
+                <p>{{ l.description }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <ng-container *ngIf="isOwner(); else request">
+                    <div>
+                        <button mat-button (click)="deleteListing(l.key)">DELETE</button>
+                    </div>
+                </ng-container>
+                <ng-template #request>
+                    <div>
+                        <button mat-button (click)="requestListing()">REQUEST</button>
+                    </div>
+                </ng-template>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

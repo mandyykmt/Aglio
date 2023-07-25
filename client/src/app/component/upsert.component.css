@@ -1,0 +1,38 @@
+.custom-header {
+    display: flex; 
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.custom-form-field {
+    width: 500px; 
+  }
+
+.custom-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.custom-router {
+    display: flex;
+    justify-content: center;
+}
+
+.custom-table-content {
+    font-size: 16px;
+}
+
+.custom-table-colon {
+    font-size: 16px;
+    font-weight: bolder;
+    padding: 10px; 
+}
+
+.custom-size {
+    height: 200px;
+    display: flex;
+    align-items: center; 
+}

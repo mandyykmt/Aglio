@@ -1,0 +1,26 @@
+.custom-header {
+    display: flex; 
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.custom-form-container {
+    height: 450px;
+}
+
+.custom-form-field {
+    width: 500px; 
+  }
+
+.custom-step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.custom-router {
+    display: flex;
+    justify-content: center;
+}

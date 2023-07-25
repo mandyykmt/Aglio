@@ -1,0 +1,49 @@
+<div class="container">
+  <div>
+    <h1>DONATE</h1>
+  </div>
+
+  <div class="custom-para">
+    <p>Nothing to give but would like to contribute?
+    <br>You can help fund the platform by donating in cash. 
+    </p>
+  </div>
+  
+  <div class="row-width">
+    <form [formGroup]="form" class="form">
+      <div class="custom-input">
+        <mat-form-field appearance="outline" class="form-field">
+          <input matInput placeholder="Name" formControlName="name">
+          <mat-error *ngIf="form.get('name')?.invalid">
+            Don't be shy, we'd like to know who helped us.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="custom-input">
+        <mat-form-field appearance="outline" class="form-field">
+          <input matInput placeholder="Amount" formControlName="amount">
+          <mat-error *ngIf="form.get('amount')?.invalid">
+            Invalid format. Numbers only.
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+
+  <div class="row-width">
+    <div class="card-details">
+      <label class="input_label"><h2>Card Details</h2></label>
+      <div class="input_container">
+        <div class="stripe" id="card-element" #cardElement></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="submit-button">
+      <button mat-button color="primary" 
+              [disabled]="form.invalid"
+              (click)="postDonation()">Submit</button>
+    </div>
+  </div>
+</div>

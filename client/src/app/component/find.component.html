@@ -1,0 +1,67 @@
+<div class="custom-header">
+    <div *ngIf="!search; else searchDiv">
+        <h1>
+            ALL LISTINGS
+        </h1>
+    </div>
+    <ng-template #searchDiv>
+        <h1>
+            "{{ search }}" LISTINGS 
+        </h1>
+    </ng-template>  
+</div>
+
+<div class="custom-container">
+
+    <!-- todo: 
+    <div *ngIf="listings$ | async">
+        <mat-form-field appearance="outline">
+            <mat-label>Search</mat-label>
+            <input matInput placeholder="Search" (keyup)="onSearch($event)">
+        </mat-form-field>
+    </div> -->
+    <div *ngIf="listings$ | async as listing; else empty" class="mat-card-container">
+        <div *ngFor="let l of listing" class="mat-card">
+            <mat-card [routerLink]="['/find', l.key]">
+                <mat-card-header>
+                    <mat-card-title>{{ l.listingName }}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image class="mat-card-image" [src]="l.url">
+                <mat-card-content>
+                    <p>{{ l.description }}</p>
+                </mat-card-content>
+                
+                <!-- todo: 
+                <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                </mat-card-actions> -->
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+<div class="custom-router">
+    <button [routerLink]="['/']">Home</button>
+    &nbsp;
+    <button 
+        *ngIf="!!search"
+        [routerLink]="['/find']">
+        All listings</button>
+</div>
+
+<ng-template #empty>
+    <div class="custom-template">
+        <img src="/assets/images/sadAglio.png" width="350px" height="350px">
+        <p>
+            Uh oh, seems like no one has been decluttering. 
+        </p>
+        <p>
+            Why not contribute
+        <a [routerLink]="['/add']">here</a>
+        ?
+        </p>
+    </div>
+</ng-template>
+
+<!-- todo: -->

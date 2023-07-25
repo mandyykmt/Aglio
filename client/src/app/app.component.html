@@ -1,0 +1,55 @@
+<div>
+  <mat-toolbar color="primary" class="toolbar">
+    <div class="example-button-container">
+      <button mat-fab color="accent" [routerLink]="['/']">
+        <mat-icon>home</mat-icon>
+      </button>
+    </div>
+  
+    <button 
+      *ngIf="isLoggedIn()"
+      class="custom-button"
+      [routerLink]="['/find']">
+      Find
+    </button>
+  
+    <button 
+      *ngIf="isLoggedIn()"
+      class="custom-button"
+      [routerLink]="['/search']">
+      Search
+    </button>
+
+    <button
+      *ngIf="isLoggedIn()"
+      class="custom-button"
+      [routerLink]="['/add']">
+      Add
+    </button>
+
+    <button
+      class="custom-button"
+      [routerLink]="['/donate']">
+      Donate
+    </button>
+  
+    <button 
+      *ngIf="!isLoggedIn()"
+      class="custom-button"
+      [routerLink]="['/register']">
+      Register
+    </button>
+  
+    <button 
+      class="custom-button"
+      (click)="isLoggedIn() ? logout() : true "
+      [routerLink]="isLoggedIn() ? '/' : '/login' ">
+      {{ isLoggedIn() ? 'Logout' : 'Login'}}
+    </button>
+  
+  </mat-toolbar>
+</div>
+
+&nbsp;
+
+<router-outlet></router-outlet>

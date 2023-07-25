@@ -1,0 +1,14 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-button {
+  background-color: transparent;
+  padding: 8px;
+  border: none; 
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}

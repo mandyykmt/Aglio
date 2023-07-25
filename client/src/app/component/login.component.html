@@ -1,0 +1,30 @@
+<div class="custom-header">
+    <h1>LOGIN</h1>
+</div>
+
+<form [formGroup]="form">
+    <div class="custom-form">
+        <mat-form-field class="custom-form-field">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="email" >
+            <mat-error *ngIf="form.get('email')?.invalid">
+                Please enter a valid email. 
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="custom-form-field">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" formControlName="password" >
+            <mat-error *ngIf="form.get('password')?.invalid">
+                Password should contain 6 to 15 characters.
+            </mat-error>
+        </mat-form-field>
+        <button mat-button
+                [disabled]="form.invalid"
+                (click)="login()">
+                Submit</button>
+    </div>
+</form>
+
+<div class="custom-router">
+    <a [routerLink]="['/register']">Don't have an account? Register here</a>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+    <div>
+      <h1>SEARCH</h1>
+    </div>
+  
+    <div class="custom-para">
+      <p>What are you looking for?</p>
+    </div>
+    
+    <form [formGroup]="form">
+      <mat-form-field appearance="outline">
+        <mat-label>
+          Search
+        </mat-label>
+        <input matInput placeholder="Listing name" formControlName="keyword">
+      </mat-form-field>
+      <div>
+        <button mat-button type="button" 
+                [disabled]="form.invalid" 
+                (click)="search()">
+                Search</button>
+        <button mat-button type="button" 
+                (click)="clearForm()">
+                Clear</button>
+      </div>
+    </form>
+</div>
+  
