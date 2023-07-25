@@ -3,11 +3,11 @@ import { Injectable } from "@angular/core";
 import { User, EmailLogin } from "./models";
 import { BehaviorSubject, Observable, map } from "rxjs";
 
-const URLRegister = "http://localhost:8080/account/register"
-const URLLogin = "http://localhost:8080/account/login"
+// const URLRegister = "http://localhost:8080/account/register"
+// const URLLogin = "http://localhost:8080/account/login"
 
-// const URLRegister = "https://olio.mandyykmt.com/account/register"
-// const URLLogin = "https://olio.mandyykmt.com/account/login"
+const URLRegister = "https://olio.mandyykmt.com/account/register"
+const URLLogin = "https://olio.mandyykmt.com/account/login"
 
 @Injectable()
 export class AccountService {

@@ -30,10 +30,16 @@ export class SearchComponent implements OnInit {
 
   search() {
     this.listingService.getListingsByKeyword(this.form.get('keyword')?.value)
-                        .subscribe(response => {
-                          console.info(response);
-                          const queryParams : Params = {search : this.form.get('keyword')?.value}
-                          this.router.navigate(['/find'], { queryParams: queryParams})
+                        .subscribe({
+                          next: (response) => {
+                            console.info(response);
+                            const queryParams : Params = {search : this.form.get('keyword')?.value}
+                            this.router.navigate(['/find'], { queryParams: queryParams})
+                          },
+                          error: (error) => {
+                            alert("No data found. Why not contribute?")
+                            this.router.navigate(['/add'])
+                          }
                         })
   }
 
